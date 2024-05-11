@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://q8fwqdgvsyqo"]
+
+[ext_resource type="Texture2D" uid="uid://bc2poo8dt3qql" path="res://icon.svg" id="1_0aism"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tq0gl"]
+polygon = PackedVector2Array(-51, 5, 58, 7, 65, 62, -54, 56)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.207843, 0.207843, 0.207843, 1)
+blend_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1197.0
+offset_bottom = 683.0
+texture = ExtResource("1_0aism")
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(692, 323)
+texture = ExtResource("1_0aism")
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+position = Vector2(-0.999984, -6.99999)
+scale = Vector2(5.35156, 2.95703)
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("1_0aism")
+
+[node name="障碍物" type="Sprite2D" parent="."]
+position = Vector2(538, 370)
+texture = ExtResource("1_0aism")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="障碍物"]
+occluder = SubResource("OccluderPolygon2D_tq0gl")
